@@ -24,6 +24,8 @@ namespace Sword.Palindrom
 
                 if (a == str[lastIndex])
                 {
+
+
                     int palLength = lastIndex - i;
                     int pei = lastIndex; // palimont end index
                     for (int psi = i; psi < palLength / 2; psi++) // palinom start index
@@ -52,6 +54,11 @@ namespace Sword.Palindrom
 
         public static bool IsPalindrom(string str, int start, int end)
         {
+            if (string.IsNullOrEmpty(str))
+            {
+                return false;
+            }
+
             if (start > end)
             {
                 throw new ArgumentOutOfRangeException("start should not be greater than end");
@@ -60,11 +67,6 @@ namespace Sword.Palindrom
             if (end > str.Length - 1)
             {
                 throw new ArgumentOutOfRangeException("end greater than length");
-            }
-
-            if (string.IsNullOrEmpty(str))
-            {
-                return false;
             }
 
             if (end - start == 1)
@@ -77,7 +79,7 @@ namespace Sword.Palindrom
                 return false;
             }
 
-            for (int i = 0, j = str.Length - 1; i < str.Length / 2; i++, j--)
+            for (int i = start, j = end; i < str.Length / 2; i++, j--)
             {
                 if (str[i] != str[j])
                 {

@@ -9,6 +9,8 @@ namespace Sword.Palindrom
     [TestClass]
     public class BiggestPalindromTest
     {
+        #region IsPalindrom
+
         [TestMethod]
         public void NullIsPalindromTest()
         {
@@ -44,5 +46,43 @@ namespace Sword.Palindrom
         {
             Assert.IsFalse(BigestPalindrom.IsPalindrom("abbax"));
         }
+
+        #endregion
+
+        #region Is part of the string is Palindrom
+
+        [TestMethod]
+        public void PartIsPalindromNullTest()
+        {
+            Assert.IsFalse(BigestPalindrom.IsPalindrom(null, 0, 0));
+        }
+
+        [TestMethod]
+        public void PartIsPalindromATest()
+        {
+            Assert.IsFalse(BigestPalindrom.IsPalindrom("a", 0, 0));
+        }
+
+        [TestMethod]
+        public void PartIsPalindromTwoLettersTest()
+        {
+            Assert.IsTrue(BigestPalindrom.IsPalindrom("aa", 0, 1));
+        }
+
+        [TestMethod]
+        public void PartIsNotPalindromTwoLettersTest()
+        {
+            Assert.IsTrue(BigestPalindrom.IsPalindrom("ab", 0, 1));
+        }
+
+        [TestMethod]
+        public void IsPalindromTest()
+        {
+            Assert.IsTrue(BigestPalindrom.IsPalindrom("abbax", 0, 3));
+        }
+
+        #endregion
+
+
     }
 }
