@@ -6,7 +6,10 @@ using System.Diagnostics;
 
 namespace Sword.LinkedList
 {
-	public static class TestNodes
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+	[TestClass]
+	public class TestNodes
 	{
 		public static void TestRemoveDublicatesHT()
 		{
@@ -15,7 +18,6 @@ namespace Sword.LinkedList
 			Node newhead = Node.RemoveDublicatesHT(Head);
 			PrintLinkedList(newhead);
 		}
-
 
 		public static void TestRemoveDublicatesNoHT()
 		{
@@ -69,6 +71,42 @@ namespace Sword.LinkedList
 			return head.next;
 		}
 
-		
+		[TestMethod]
+		public void TestDistinctValues()
+		{
+			Node Head = CreateLinkedList(new[] { 1, 2, 2, 2, 4, 5, 6, 6 });
+
+			Node newhead = null;
+			Node current = Head;
+
+			while (current != null)
+			{
+				// dublicate
+				if (current.data == current.next.data)
+				{
+					Node nextUniq = current;
+					while (nextUniq != null && nextUniq.data == current.data)
+					{
+						nextUniq = nextUniq.next;
+					}
+					current = nextUniq;
+					if (newhead == null)
+					{
+						newhead = nextUniq;
+					}
+					else
+					{
+						newhead.next = nextUniq;
+					}
+				}
+				else
+				{
+					if (newhead == null)
+					{
+						newhead = current;
+					}
+				}
+			}
+		}
 	}
 }
