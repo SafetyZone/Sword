@@ -59,6 +59,7 @@
     <Compile Include="Graphs\FindShortestStringPath.cs" />
     <Compile Include="Graphs\FindShortestStringPathTest.cs" />
     <Compile Include="Graphs\GNode.cs" />
+    <Compile Include="LinkedList\DistinctTest.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="LinkedList\TestNodes.cs" />
     <Compile Include="Palindrom\BigestPalindrom.cs" />
