@@ -26,7 +26,7 @@ namespace Sword.Palindrom
         [TestMethod]
         public void x_IsPalindromTest()
         {
-            Assert.IsTrue(BigestPalindrom.IsPalindrom("x"));
+            Assert.IsFalse(BigestPalindrom.IsPalindrom("x"));
         }
 
         [TestMethod]
@@ -83,6 +83,28 @@ namespace Sword.Palindrom
 
         #endregion
 
+        #region
+        [TestMethod]
+        public void BigestPalimndrom()
+        {
+            //ABCBAHELLOHOWRACECARAREYOUIAMAIDOINGGOOD
+            string str = "ABCBAL"; //HELLOHOWRACECARAREYOUIAMAIDOINGGOOD";
+            string result = new BigestPalindrom().BigestPalimndrom(str);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Length == 5);
+            Assert.AreEqual(result, "ABCBA");
+        }
 
+        [TestMethod]
+        public void BigestPalimndrom_2()
+        {
+            //ABCBAHELLOHOWRACECARAREYOUIAMAIDOINGGOOD
+            string str = "ABCBAHELLOHOWRACECARAREYOUIAMAIDOINGGOOD"; //HELLOHOWRACECARAREYOUIAMAIDOINGGOOD";
+            string result = new BigestPalindrom().BigestPalimndrom(str);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Length == 5);
+            Assert.AreEqual(result, "ABCBA");
+        }
+        #endregion
     }
 }

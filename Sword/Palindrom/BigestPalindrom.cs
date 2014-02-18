@@ -16,40 +16,47 @@ namespace Sword.Palindrom
 
         public string BigestPalimndrom(string str)
         {
-            int lastIndex = str.Length - 1;
-
-            for (int i = 0; i < str.Length; i++)
+            if (string.IsNullOrEmpty(str))
             {
-                char a = str[i];
+                throw new ArgumentException("string should not be empty");
+            }
 
-                if (a == str[lastIndex])
+            if (str.Length == 1)
+            {
+                throw new ArgumentException("String should contain more than one character");
+            }
+
+            int pistart = -1; // initial value;
+            int length = 0;
+
+            for (int i = 0; i < str.Length - 1; ++i)
+            {
+                for (int j = str.Length - 1; j >= i; --j)
                 {
-
-
-                    int palLength = lastIndex - i;
-                    int pei = lastIndex; // palimont end index
-                    for (int psi = i; psi < palLength / 2; psi++) // palinom start index
+                    if (IsPalindrom(str, i, j))
                     {
-                        while (true)
+                        if (pistart == -1)
                         {
-                            if (str[psi] == str[pei])
+                            pistart = i;
+                            length = j - i;
+                        }
+                        else
+                        {
+                            if (length < j - i)
                             {
-                                --pei;
-                                break;
-                            }
-                            else
-                            {
-                                if (psi < pei)
-                                {
-                                    --pei;
-                                }
+                                pistart = i;
+                                length = j - i;
                             }
                         }
                     }
                 }
             }
 
-            return string.Empty;
+            if (pistart != -1)
+            {
+                return str.Substring(pistart, length + 1);
+            }
+            return null;
         }
 
         public static bool IsPalindrom(string str, int start, int end)
@@ -79,7 +86,7 @@ namespace Sword.Palindrom
                 return false;
             }
 
-            for (int i = start, j = end; i < str.Length / 2; i++, j--)
+            for (int i = start, j = end; i < j; i++, j--)
             {
                 if (str[i] != str[j])
                 {

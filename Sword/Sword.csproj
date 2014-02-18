@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Area\MaximizingHistogram.cs" />
     <Compile Include="ArrayString\Anagram.cs" />
     <Compile Include="ArrayString\DublicatesNoMemory.cs" />
     <Compile Include="ArrayString\ReplaceSpace.cs" />

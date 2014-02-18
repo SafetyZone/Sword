@@ -128,6 +128,27 @@ namespace Sword.LinkedList
             return findNthFromToEndRecursion(head, nth, ref depth);
         }
 
+        public static Node Reverse(Node node)
+        {
+            if (node == null)
+                return null;
+
+            Node previous = node;
+            Node current = node.next;
+            Node next = null;
+            previous.next = null;
+
+            while (current != null)
+            {
+                next = current.next;
+                current.next = previous;
+                previous = current;
+                current = next;
+            }
+
+            return previous;
+        }
+
         private static Node findNthFromToEndRecursion(Node head, int nth, ref int depth)
         {
             if (head == null)

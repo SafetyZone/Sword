@@ -8,6 +8,7 @@ namespace Sword.LinkedList
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    [TestClass]
     public class TestNodes
     {
         public static void TestRemoveDublicatesHT()
@@ -69,5 +70,18 @@ namespace Sword.LinkedList
             }
             return head.next;
         }
+
+        #region Reverse Linked List
+
+        [TestMethod]
+        public void ReversTest()
+        {
+            Node Head = CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6, 7 });
+            Node newHead = Node.Reverse(Head);
+
+            Assert.IsTrue(Node.Compare(newHead, CreateLinkedList(new int[] { 7, 6, 5, 4, 3, 2, 1 })));
+        }
+
+        #endregion
     }
 }
