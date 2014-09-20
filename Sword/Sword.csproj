@@ -57,6 +57,7 @@
     <Compile Include="ArrayString\ReplaceSpace.cs" />
     <Compile Include="ArrayString\RotateMatrix.cs" />
     <Compile Include="BinaryOperations\Tests.cs" />
+    <Compile Include="DotNet\TypeConversions.cs" />
     <Compile Include="Graphs\FindShortestStringPath.cs" />
     <Compile Include="Graphs\FindShortestStringPathTest.cs" />
     <Compile Include="Graphs\GNode.cs" />
